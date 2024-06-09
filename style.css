@@ -1,0 +1,120 @@
+:root {
+  --bg: hsl(257, 40%, 49%);
+  --accents: hsl(300, 69%, 71%);
+}
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  /* border: 1px solid red; */
+}
+
+body {
+  background-color: var(--bg);
+  background-image: url(images/bg-mobile.svg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  font-family: "Open Sans";
+  min-height: 100svh;
+}
+h1 {
+  font-family: "Poppins";
+  font-weight: 600;
+}
+main {
+  text-align: center;
+  display: grid;
+  gap: 1rem;
+  color: white;
+}
+img {
+  display: block;
+  max-width: 100%;
+}
+svg {
+  display: block;
+}
+a.btn {
+  display: inline-block;
+  text-decoration: none;
+  color: var(--bg);
+  background-color: #fff;
+  border-radius: 100vw;
+  padding: 1em 2em;
+  margin-bottom: 5rem;
+  transition: all 500ms;
+
+  &:hover {
+    background-color: var(--accents);
+    box-shadow: 0 0 10px -1px black;
+    color: white;
+  }
+}
+.logo {
+  margin-bottom: 5rem;
+  margin-top: 1rem;
+}
+.intro-section {
+  max-width: 43ch;
+  margin-inline: auto;
+}
+.intro-image {
+  margin-inline: auto;
+}
+.social-links {
+  margin-right: 1rem;
+  display: flex;
+  margin-inline: auto;
+  margin-bottom: 5rem;
+  justify-content: center;
+  gap: 1rem;
+  width: 15rem;
+
+  > * {
+    width: 50px;
+    height: 50px;
+    padding: 0.75em;
+    border-radius: 50%;
+    fill: white;
+    outline: 1px solid white;
+    transition: outline 250ms, fill 500ms;
+
+    &:hover {
+      outline: 1px solid var(--accents);
+      fill: var(--accents);
+    }
+  }
+}
+@media (min-width: 1080px) {
+  body {
+    background-image: url(images/bg-desktop.svg);
+  }
+  main {
+    grid-template-columns: 60% 1fr;
+    text-align: start;
+    max-width: min(90% - 2rem, 80rem);
+    margin-inline: auto;
+  }
+  .logo {
+    grid-column: span 2;
+  }
+  .social-links {
+    grid-column: 1 / span 2;
+    grid-row: 2;
+    margin: auto 0 0 auto;
+    /* margin-right: 1rem; */
+  }
+  .intro-section,
+  .intro-image {
+    grid-row: 2;
+  }
+  .intro-image {
+    grid-column: 1;
+  }
+  .intro-section {
+    grid-column: 2;
+  }
+  a.btn {
+    margin-top: 1rem;
+  }
+}
